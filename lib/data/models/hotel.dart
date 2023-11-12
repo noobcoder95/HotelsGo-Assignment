@@ -1,9 +1,11 @@
+import 'package:equatable/equatable.dart';
 import 'package:hotels_go/utils/enums/currency.dart';
 import 'package:hotels_go/utils/enums/recommendation.dart';
 import 'package:hotels_go/utils/extension/currency.dart';
 import 'package:hotels_go/utils/extension/recommendation.dart';
 
-class Hotel {
+/// Extend Equatable For Unit Testing Purpose
+class Hotel extends Equatable {
   const Hotel({
     this.name = '',
     this.starts,
@@ -54,4 +56,16 @@ class Hotel {
 
   /// Using review as recommendation value
   Recommendation get recommendation => Recommendation.values.firstWhere((e) => e.label == review, orElse: ()=> Recommendation.good);
+
+  @override
+  List<Object?> get props => [
+    name,
+    starts,
+    price,
+    currency,
+    image,
+    reviewScore,
+    reviewScore,
+    address
+  ];
 }

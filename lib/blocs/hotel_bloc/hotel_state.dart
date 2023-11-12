@@ -1,6 +1,7 @@
 part of 'hotel_bloc.dart';
 
-class HotelState {
+/// Extend Equatable For Unit Testing Purpose
+class HotelState extends Equatable {
   const HotelState({
     this.dataState = DataState.loading,
     this.allItem = const [],
@@ -22,4 +23,7 @@ class HotelState {
     dataState: dataState ?? this.dataState,
     allItem: allItem ?? this.allItem,
     filteredItem: filteredItem ?? this.filteredItem);
+
+  @override
+  List<Object> get props => [dataState, allItem, filteredItem];
 }

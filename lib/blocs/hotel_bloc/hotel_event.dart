@@ -17,3 +17,8 @@ class SortListHotel extends HotelEvent {
   final Sort sort;
   const SortListHotel(this.sort);
 }
+
+/// For Unit Testing Purpose
+class TestGetListHotel extends HotelEvent {
+  const TestGetListHotel();
+}
