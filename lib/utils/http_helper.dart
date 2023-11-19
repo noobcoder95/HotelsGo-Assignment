@@ -14,6 +14,11 @@ final _httpClient = http.Client();
 
 class HttpHelper {
   static Future<ApiResponse> get(String path) async {
+    final isOnline = await ConnectivityHelper.check;
+
+    if (!isOnline) {
+      return _noConnectionResponse;
+    }
 
     /// For Web platform i use isolated worker to support concurrency/multithreading
     if(kIsWeb) {
@@ -27,12 +32,6 @@ class HttpHelper {
         message: LocaleKeys.dataRetrieved.tr(),
         data: map['jsonResponse']
       );
-    }
-
-    final isOnline = await ConnectivityHelper.check;
-
-    if (!isOnline) {
-      return _noConnectionResponse;
     }
 
     return await compute(httpGet, path);

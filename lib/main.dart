@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
+      navigatorKey: AppHelpers.navigatorKey,
+      scaffoldMessengerKey: AppHelpers.scaffoldMessengerKey,
       locale: context.locale,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
